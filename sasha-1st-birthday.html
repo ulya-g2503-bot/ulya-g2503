@@ -234,8 +234,15 @@ footer .tiny{font-family:'Caveat',cursive;font-size:24px;color:var(--burg)}
     📍 <b>Детская комната «Кактус», Сталинградская, 4Г</b>
   </div>
 
-  <!-- Ёжик-маскот под секцией даты/времени/места -->
-  <svg id="hedgehog" viewBox="0 0 220 210" width="150" style="margin:10px auto 0;display:block" aria-label="Ёжик в праздничном колпачке">
+  <div class="count" id="count">
+    <div class="count-box"><b id="d">0</b><span>дней</span></div>
+    <div class="count-box"><b id="h">0</b><span>часов</span></div>
+    <div class="count-box"><b id="m">0</b><span>минут</span></div>
+    <div class="count-box"><b id="s">0</b><span>секунд</span></div>
+  </div>
+
+  <!-- Ёжик-маскот под обратным отсчётом -->
+  <svg id="hedgehog" viewBox="0 0 220 210" width="200" style="margin:8px auto -70px;display:block;position:relative;z-index:2" aria-label="Ёжик в праздничном колпачке">
     <!-- шар из колючек -->
     <polygon fill="#54331a" points="172,118 157.4,125.5 169,137.1 152.8,139.8 160.2,154.4 143.9,151.9 146.4,168.2 131.8,160.8 129.1,177 117.5,165.4 110,180 102.5,165.4 90.9,177 88.2,160.8 73.6,168.2 76.1,151.9 59.8,154.4 67.2,139.8 51,137.1 62.6,125.5 48,118 62.6,110.5 51,98.9 67.2,96.2 59.8,81.6 76.1,84.1 73.6,67.8 88.2,75.2 90.9,59 102.5,70.6 110,56 117.5,70.6 129.1,59 131.8,75.2 146.4,67.8 143.9,84.1 160.2,81.6 152.8,96.2 169,98.9 157.4,110.5"/>
     <circle cx="110" cy="118" r="50" fill="#7a4c28"/>
@@ -270,13 +277,6 @@ footer .tiny{font-family:'Caveat',cursive;font-size:24px;color:var(--burg)}
     <image href="колпачок.png" x="11" y="-56" width="198" height="198"
            preserveAspectRatio="xMidYMax meet"/>
   </svg>
-
-  <div class="count" id="count">
-    <div class="count-box"><b id="d">0</b><span>дней</span></div>
-    <div class="count-box"><b id="h">0</b><span>часов</span></div>
-    <div class="count-box"><b id="m">0</b><span>минут</span></div>
-    <div class="count-box"><b id="s">0</b><span>секунд</span></div>
-  </div>
 </header>
 
 <!-- (дресс-код убран по просьбе) -->
