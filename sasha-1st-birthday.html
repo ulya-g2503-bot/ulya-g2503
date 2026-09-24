@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#8e2143">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦔 Саше — 1 годик! Дофамин Пати</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦔</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Montserrat:wght@400;500;700&family=Caveat:wght@600;700&family=Marck+Script&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#6ec5e8;
+  --olive:#a3b64c;
+  --yellow:#ffd53d;
+  --orange:#ff8c42;
+  --burg:#8e2143;
+  --ink:#4a2a14;
+  --cream:#fdf3e2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',system-ui,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(110,197,232,.22), transparent 32%),
+    radial-gradient(circle at 88% 16%, rgba(255,213,61,.25), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(163,182,76,.18), transparent 32%),
+    radial-gradient(circle at 8% 78%, rgba(255,140,66,.2), transparent 30%),
+    var(--cream);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+section{padding:52px 20px;max-width:860px;margin:0 auto}
+
+/* ── конфетти-дождь ── */
+#rain{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+.conf{
+  position:absolute;top:-24px;border-radius:3px;opacity:.85;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(108vh) rotate(720deg)}
+}
+
+/* ── гирлянда ── */
+.garland{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
+.garland .flag{width:26px;height:34px;clip-path:polygon(0 0,100% 0,50% 100%);opacity:.9}
+.flag:nth-child(1){background:var(--blue)}
+.flag:nth-child(2){background:var(--yellow)}
+.flag:nth-child(3){background:var(--orange)}
+.flag:nth-child(4){background:var(--olive)}
+.flag:nth-child(5){background:var(--burg)}
+.flag:nth-child(6){background:var(--blue)}
+.flag:nth-child(7){background:var(--yellow)}
+.flag:nth-child(8){background:var(--orange)}
+
+/* ── главный экран ── */
+.hero{
+  position:relative;text-align:center;padding:84px 20px 40px;
+  overflow:hidden;
+}
+.float-emoji{position:absolute;font-size:34px;animation:bob 3.5s ease-in-out infinite;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12))}
+.float-emoji.big{font-size:44px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.pretitle{
+  font-family:'Caveat',cursive;font-size:34px;color:var(--burg);margin:18px 0 4px;
+}
+h1{
+  font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(40px,9vw,76px);
+  line-height:1.02;margin-bottom:8px;
+  color:var(--burg);
+}
+h1 .dop{color:var(--orange)}
+.title-arrow{font-size:.55em;vertical-align:middle}
+.subtitle{
+  font-family:'Caveat',cursive;font-size:30px;color:var(--olive);
+  margin-bottom:22px;
+}
+.hoot{
+  font-family:'Caveat',cursive;font-weight:700;
+  font-size:clamp(23px,5vw,42px);color:#111;line-height:1;
+  margin:8px 0 4px;
+}
+.dop-title{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(30px,7vw,62px);line-height:1.12;letter-spacing:1px;
+  margin-bottom:16px;
+}
+.dop-title .o-photo{
+  display:inline-block;width:4.4em;height:4.4em;line-height:4.4em;
+  vertical-align:-1.3em;border-radius:50%;overflow:hidden;
+  background:transparent;
+  font-family:Montserrat,sans-serif;font-size:.5em;color:#fff;
+  text-align:center;
+}
+.o-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.invite-black{
+  font-size:clamp(17px,2.3vw,21px);font-weight:600;color:#111;
+  max-width:660px;margin:0 auto 4px;line-height:1.5;
+}
+.invite-blue{
+  font-family:'Marck Script',cursive;font-size:clamp(42px,8vw,66px);
+  color:var(--blue);margin-bottom:18px;
+}
+
+.info-card{
+  display:inline-block;background:#fff;border:3px solid var(--yellow);
+  border-radius:24px;padding:16px 26px;margin:10px auto 22px;
+  box-shadow:8px 8px 0 var(--olive);
+  font-size:17px;line-height:1.7;text-align:left;
+}
+.info-card b{color:var(--burg)}
+
+/* ── счётчик ── */
+.count{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.count-box{
+  background:var(--orange);color:#fff;border-radius:18px;
+  padding:12px 16px;min-width:76px;
+  box-shadow:0 6px 0 #d96f1c;
+}
+.count-box b{font-family:'Unbounded',sans-serif;display:block;font-size:30px}
+.count-box span{font-size:12px;letter-spacing:1px;text-transform:uppercase;opacity:.85}
+
+/* ── бегущая строка ── */
+.marquee{background:var(--yellow);overflow:hidden;white-space:nowrap;border-block:3px solid var(--burg)}
+.marquee-track{display:inline-flex;animation:scroll 20s linear infinite}
+.marquee span{
+  font-family:'Unbounded',sans-serif;font-weight:700;color:var(--burg);
+  padding:12px 40px;font-size:18px;
+}
+.marquee.dark{background:var(--burg)}
+.marquee.dark span{color:var(--yellow)}
+.marquee.fast .marquee-track{animation-duration:10s}
+.marquee.orange span{color:var(--orange);border-bottom:3px solid var(--burg)}
+.marquee.blue{background:#9fd9f0;border-block:none}
+.marquee.blue span{color:#111}
+.marquee.white{background:#fff;border-block:3px solid var(--olive)}
+.marquee.white.fast .marquee-track{gap:0}
+.marquee.white.fast span{padding:12px 0}
+.marquee.white span{color:var(--olive)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ── заголовки секций ── */
+h2{
+  font-family:'Unbounded',sans-serif;font-size:clamp(24px,5vw,36px);
+  font-weight:700;text-align:center;color:var(--burg);margin-bottom:12px;
+}
+.section-note{text-align:center;font-size:17px;line-height:1.6;margin-bottom:22px}
+.hand{font-family:'Caveat',cursive;font-size:26px;color:var(--orange)}
+.card{
+  background:#fff;border:3px solid var(--blue);border-radius:24px;
+  padding:22px;box-shadow:8px 8px 0 var(--olive);
+  text-align:center;font-size:17px;
+}
+
+/* ── дресс-код ── */
+.dress-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.color-card{display:flex;flex-direction:column;align-items:center;width:104px}
+.color-circle{
+  width:88px;height:88px;border-radius:50%;position:relative;margin-bottom:10px;
+  box-shadow:0 6px 14px rgba(0,0,0,.18), inset 0 -10px 20px rgba(0,0,0,.12);
+}
+.color-name{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  font-family:'Caveat',cursive;font-size:20px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.c-blue{background:var(--blue)}
+.c-olive{background:var(--olive)}
+.c-yellow{background:var(--yellow)}
+.c-orange{background:var(--orange)}
+.c-burg{background:var(--burg)}
+.color-card.special .color-circle::after{
+  content:"🦔";position:absolute;font-size:30px;left:50%;top:50%;
+  transform:translate(-50%,-55%);filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))
+}
+.color-card.special p{font-size:12px;text-align:center;color:var(--burg)}
+
+/* ── программa ── */
+.program{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.program .item{flex:0 1 240px}
+.program .item{background:#fff;border-radius:20px;padding:18px 10px;text-align:center;
+  border:3px solid var(--yellow);box-shadow:5px 5px 0 var(--blue)}
+.program .item .emo{font-size:38px}
+.program .item .time{display:inline-block;font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:16px;color:#fff;background:var(--orange);border-radius:999px;padding:4px 12px;margin-bottom:6px}
+.program .item p{font-size:14px;font-weight:500;margin-top:6px}
+
+/* ── кнопка ── */
+.btn{
+  display:inline-block;background:var(--burg);color:#fff;
+  font-family:'Unbounded',sans-serif;font-weight:600;font-size:15px;
+  padding:15px 30px;border-radius:999px;text-decoration:none;
+  box-shadow:0 6px 0 #5d1430;transition:transform .15s, box-shadow .15s;
+  margin-top:6px;
+}
+.btn:hover{transform:translateY(2px);box-shadow:0 4px 0 #5d1430}
+
+/* ── подвал ── */
+footer{text-align:center;padding:40px 20px}
+footer .tiny{font-family:'Caveat',cursive;font-size:24px;color:var(--burg)}
+</style>
+</head>
+<body>
+
+<div id="rain"></div>
+
+<!-- ═══════════════ ГЛАВНЫЙ ЭКРАН ═══════════════ -->
+<header class="hero">
+  <div class="garland">
+    <span class="flag"></span><span class="flag"></span><span class="flag"></span>
+    <span class="flag"></span><span class="flag"></span><span class="flag"></span>
+    <span class="flag"></span><span class="flag"></span>
+  </div>
+
+  <span class="float-emoji" style="top:16%;left:7%">🎈</span>
+  <span class="float-emoji" style="top:26%;right:8%;animation-delay:1s">🎊</span>
+  <span class="float-emoji big" style="top:62%;left:8%;animation-delay:.5s">🎈</span>
+  <span class="float-emoji" style="top:70%;right:10%;animation-delay:1.6s">✨</span>
+  <span class="float-emoji" style="top:78%;left:20%;animation-delay:2.1s">🎉</span>
+
+  <p class="hoot">Ура!</p>
+  <h1 class="dop-title">
+    <span class="letter" style="color:var(--blue)">С</span><span class="letter" style="color:var(--burg)">А</span><span class="letter" style="color:var(--orange)">Ш</span><span class="letter" style="color:var(--olive)">У</span><span class="letter" style="color:var(--yellow)">Л</span><span class="letter" style="color:var(--blue)">Е</span><br>
+    <span class="letter" style="color:var(--burg)">1</span>
+    <span class="letter" style="color:var(--orange)">Г</span><span class="letter o-photo"><img src="scene.png" alt="фото Саши"></span><span class="letter" style="color:var(--yellow)">Д</span><span class="letter" style="color:var(--blue)">И</span><span class="letter" style="color:var(--burg)">К</span>
+  </h1>
+  <p class="invite-black">Мои мама и папа приглашают всех родных на мой первый</p>
+  <p class="invite-blue">День рождения</p>
+
+  <div class="info-card">
+    📅 <b>11 октября 2026, воскресенье, 16:00</b><br>
+    📍 <b>Детская комната «Кактус», Сталинградская, 4Г</b>
+  </div>
+
+  <!-- Ёжик-маскот под секцией даты/времени/места -->
+  <svg id="hedgehog" viewBox="0 0 220 210" width="150" style="margin:10px auto 0;display:block" aria-label="Ёжик в праздничном колпачке">
+    <!-- шар из колючек -->
+    <polygon fill="#54331a" points="172,118 157.4,125.5 169,137.1 152.8,139.8 160.2,154.4 143.9,151.9 146.4,168.2 131.8,160.8 129.1,177 117.5,165.4 110,180 102.5,165.4 90.9,177 88.2,160.8 73.6,168.2 76.1,151.9 59.8,154.4 67.2,139.8 51,137.1 62.6,125.5 48,118 62.6,110.5 51,98.9 67.2,96.2 59.8,81.6 76.1,84.1 73.6,67.8 88.2,75.2 90.9,59 102.5,70.6 110,56 117.5,70.6 129.1,59 131.8,75.2 146.4,67.8 143.9,84.1 160.2,81.6 152.8,96.2 169,98.9 157.4,110.5"/>
+    <circle cx="110" cy="118" r="50" fill="#7a4c28"/>
+    <circle cx="110" cy="120" r="44" fill="#8a5a35"/>
+    <!-- ушки -->
+    <ellipse cx="78" cy="98" rx="7" ry="10" fill="#5d3a1e"/>
+    <ellipse cx="78" cy="96" rx="4" ry="6" fill="#c89b6b"/>
+    <ellipse cx="142" cy="98" rx="7" ry="10" fill="#5d3a1e"/>
+    <ellipse cx="142" cy="96" rx="4" ry="6" fill="#c89b6b"/>
+    <!-- мордочка -->
+    <ellipse cx="110" cy="124" rx="40" ry="38" fill="#c89b6b"/>
+    <ellipse cx="110" cy="140" rx="17" ry="13" fill="#e6c58f"/>
+    <!-- носик -->
+    <ellipse cx="110" cy="135" rx="8" ry="6" fill="#241407"/>
+    <ellipse cx="108" cy="133" rx="2.4" ry="1.8" fill="#fff"/>
+    <!-- ротик -->
+    <path d="M105 144 Q110 148 115 144" stroke="#4a2a14" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <!-- глазки -->
+    <ellipse cx="93" cy="112" rx="5" ry="6" fill="#1f1207"/>
+    <ellipse cx="127" cy="112" rx="5" ry="6" fill="#1f1207"/>
+    <circle cx="95" cy="110" r="1.6" fill="#fff"/>
+    <circle cx="129" cy="110" r="1.6" fill="#fff"/>
+    <!-- усики -->
+    <path d="M96 142 L80 136" stroke="#6d4426" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M96 146 L78 148" stroke="#6d4426" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M124 142 L140 136" stroke="#6d4426" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M124 146 L142 148" stroke="#6d4426" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- лапки -->
+    <ellipse cx="96" cy="176" rx="11" ry="8" fill="#a9714b"/>
+    <ellipse cx="124" cy="176" rx="11" ry="8" fill="#a9714b"/>
+    <!-- колпачок из файла колпачок.png -->
+    <image href="колпачок.png" x="11" y="-56" width="198" height="198"
+           preserveAspectRatio="xMidYMax meet"/>
+  </svg>
+
+  <div class="count" id="count">
+    <div class="count-box"><b id="d">0</b><span>дней</span></div>
+    <div class="count-box"><b id="h">0</b><span>часов</span></div>
+    <div class="count-box"><b id="m">0</b><span>минут</span></div>
+    <div class="count-box"><b id="s">0</b><span>секунд</span></div>
+  </div>
+</header>
+
+<!-- (дресс-код убран по просьбе) -->
+
+<div class="marquee blue"><div class="marquee-track">
+  <span>Нашему ежику 1 годик! &nbsp;&nbsp;</span>
+  <span>Нашему ежику 1 годик! &nbsp;&nbsp;</span>
+</div></div>
+
+<!-- ═══════════════ ПОДАРКИ / ВИШ-ЛИСТ ═══════════════ -->
+<section id="gifts">
+  <h2>🎁 Подарки</h2>
+  <div class="card">
+    <p class="section-note" style="margin-bottom:8px">
+      По многочисленным просьбам мы подготовили виш-лист с идеями подарков.
+    </p>
+    <a class="btn" href="https://ohmywishes.com/users/ulya-g2503/lists/9c6aa93b3a5f063561344797" target="_blank" rel="noopener">Открыть виш-лист 🎈</a>
+  </div>
+</section>
+
+<div class="marquee white fast"><div class="marquee-track">
+  <span>🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔</span>
+  <span>🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔🦔</span>
+</div></div>
+
+<!-- ═══════════════ ПРОГРАММА ═══════════════ -->
+<section id="activity">
+  <h2>🗓 Что будет</h2>
+  <div class="card" style="margin-bottom:20px">
+    <p class="section-note" style="margin-bottom:0">
+      Пора собраться на важное торжество! Дресс-код: хорошее настроение!
+    </p>
+  </div>
+  <div class="program">
+    <div class="item"><span class="time">16:00</span><p>Встречаемся, обнимаемся и вкусно едим</p></div>
+    <div class="item"><span class="time">17:00</span><p>Развлекаемся с аниматорами</p></div>
+    <div class="item"><span class="time">18:00</span><p>Задуваем свечи и едим торт!</p></div>
+  </div>
+</section>
+
+<footer>
+  <p class="tiny">Приходите — будет очень весело!<br>С любовью, семья Саши 🦔</p>
+</footer>
+
+<script>
+/* ── падающее конфетти ── */
+(function(){
+  const rain=document.getElementById('rain');
+  const colors=['#6ec5e8','#a3b64c','#ffd53d','#ff8c42','#8e2143'];
+  const shapes=['rect','circle'];
+  const count=window.innerWidth<500?40:70;
+  for(let i=0;i<count;i++){
+    const el=document.createElement('div');
+    el.className='conf';
+    const w=6+Math.random()*8, h=8+Math.random()*10;
+    el.style.width=w+'px';
+    el.style.height=shapes[Math.random()<.4?1:0]==='circle'?w+'px':h+'px';
+    if(shapes[Math.random()<.4?1:0]==='circle'){el.style.borderRadius='50%'}
+    el.style.left=Math.random()*100+'vw';
+    el.style.background=colors[Math.floor(Math.random()*colors.length)];
+    el.style.animationDuration=(4+Math.random()*5)+'s';
+    el.style.animationDelay=(-0+Math.random()*6)+'s';
+    rain.appendChild(el);
+  }
+})();
+
+/* ── таймер до 11 октября 2026, 16:00 ── */
+(function(){
+  const target=new Date('2026-10-11T16:00:00').getTime();
+  const id={d:'d',h:'h',m:'m',s:'s'};
+  function pad(n){return n<10?'0'+n:n}
+  function tick(){
+    const diff=Math.max(0,target-Date.now());
+    document.getElementById(id.d).textContent=Math.floor(diff/86400000);
+    document.getElementById(id.h).textContent=pad(Math.floor(diff%86400000/3600000));
+    document.getElementById(id.m).textContent=pad(Math.floor(diff%3600000/60000));
+    document.getElementById(id.s).textContent=pad(Math.floor(diff%60000/1000));
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
